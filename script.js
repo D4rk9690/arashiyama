@@ -32,7 +32,7 @@ gsap.utils.toArray(".game-card").forEach(card => {
 });
 
 // ✅ Live player count updater using PHP proxy
-const proxyEndpoint = "./api/roblox-proxy.php"; // Adjust path if needed
+const proxyEndpoint = "./api/roblox-proxy.php";
 
 async function updateLivePlayerCount() {
   try {
@@ -51,6 +51,73 @@ async function updateLivePlayerCount() {
   }
 }
 
-// Initial fetch and refresh every 30 seconds
 updateLivePlayerCount();
 setInterval(updateLivePlayerCount, 30000);
+
+// 🎬 Intro Overlay Control
+window.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    document.body.classList.add("intro-done");
+
+    // Smooth scroll to hero
+    const hero = document.querySelector(".hero");
+    if (hero) {
+      setTimeout(() => {
+        hero.scrollIntoView({ behavior: "smooth" });
+      }, 1000);
+    }
+  }, 3500); // 3.5 seconds intro duration
+});
+
+
+function spawnLogo() {
+  const container = document.querySelector(".logo-rain");
+  if (!container) return;
+
+  const drop = document.createElement("div");
+  drop.classList.add("logo-drop");
+
+  // Random position and styling
+  drop.style.left = `${Math.random() * 100}vw`;
+  drop.style.animationDuration = `${2.5 + Math.random() * 2}s`;
+  drop.style.animationDelay = "0s";
+  const scale = 0.5 + Math.random() * 1.2;
+  drop.style.transform = `scale(${scale}) rotate(${Math.random() * 360}deg)`;
+
+
+  // Remove after animation
+  drop.addEventListener("animationend", () => {
+    drop.remove();
+  });
+
+  container.appendChild(drop);
+}
+
+// Call repeatedly
+function startLogoRain(rate = 100) {
+  setInterval(() => {
+    spawnLogo();
+  }, rate); // Spawn one logo every 100ms
+}
+
+
+window.addEventListener("DOMContentLoaded", () => {
+  startLogoRain(100); // adjust rate if needed
+
+  const wind = document.getElementById("wind-sfx");
+  if (wind) {
+    wind.volume = 0.4;
+    wind.play().catch(() => {});
+  }
+
+  setTimeout(() => {
+    document.body.classList.add("intro-done");
+
+    const hero = document.querySelector(".hero");
+    if (hero) {
+      setTimeout(() => {
+        hero.scrollIntoView({ behavior: "smooth" });
+      }, 1000);
+    }
+  }, 3500);
+});

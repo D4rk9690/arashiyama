@@ -8,8 +8,20 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="icon" type="image/x-icon" href="./assets/images/logo.png">
 </head>
 <body>
+
+  <!-- INTRO OVERLAY -->
+  <div id="intro-overlay">
+    <div class="intro-content">
+      <img src="assets/images/logo.png" alt="Logo" class="intro-logo" />
+      <h1 class="intro-text">Dive into the Studio</h1>
+    </div>
+    <div class="logo-rain"></div>
+
+  </div>
+
   <!-- NAV -->
   <header class="navbar">
     <div class="logo-name">Arashiyama</div>
@@ -51,18 +63,14 @@
           <div class="game-thumb" style="background-image: url('assets/images/game1.png');"></div>
           <div class="game-info">
             <h3>Be NPC or Die</h3>
-            <p>
-  <i data-lucide="heart" class="icon-heart"></i>
-  435k+ &nbsp; | &nbsp; 204.6M+ Visits
-</p>
-
+            <p><i data-lucide="heart" class="icon-heart"></i> 435k+ &nbsp; | &nbsp; 204.6M+ Visits</p>
           </div>
         </div>
         <div class="game-card">
           <div class="game-thumb" style="background-image: url('assets/images/game2.png');"></div>
           <div class="game-info">
             <h3>🔎 Undercover Trouble!</h3>
-            <p> <i data-lucide="heart" class="icon-heart"></i> 31K+ &nbsp; | &nbsp; 17.2M+ Visits</p>
+            <p><i data-lucide="heart" class="icon-heart"></i> 31K+ &nbsp; | &nbsp; 17.2M+ Visits</p>
           </div>
         </div>
         <div class="game-card stats-card">
@@ -73,12 +81,11 @@
         </div>
       </div>
     </div>
-          <div class="live-stats">
-  <i data-lucide="users"></i>
-  <span id="player-count">Loading...</span>
-  <span class="label">Players Online</span>
-</div>
-
+    <div class="live-stats">
+      <i data-lucide="users"></i>
+      <span id="player-count">Loading...</span>
+      <span class="label">Players Online</span>
+    </div>
   </section>
 
   <!-- CONTACT -->
